@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-admin {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.sidebar{
+    padding: 2% 1%;
+    border: 1px solid;
+    width: 15%;
+    height: 100%;
+}
+.addproducts{
+    width: 85%;
+    border: 1px solid;
+    padding: 2%;
+}
