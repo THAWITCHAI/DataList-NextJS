@@ -11,16 +11,13 @@ export default function Sidebar({}: Props) {
         <Link href={"/components/AllProducts"} className="item-menu text-white">
           Products
         </Link>
-        <Link href={"/components/Add"} className="item-menu text-white">
+        <Link href={"/components/add-product"} className="item-menu text-white">
           ADD
-        </Link>
-        <Link href={"/components/Move"} className="item-menu text-white">
-          Move
         </Link>
         <Link href={"/components/Users"} className="item-menu text-white">
           Users
         </Link>
-        <Link href={"/components/Users"} className="item-menu text-white">
+        <Link href={"/components/Users/add"} className="item-menu text-white">
           Regiter
         </Link>
         <br />
