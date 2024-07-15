@@ -20,6 +20,9 @@ export default function Sidebar({}: Props) {
         <Link href={"/components/Users"} className="item-menu text-white">
           Users
         </Link>
+        <Link href={"/components/Users"} className="item-menu text-white">
+          Regiter
+        </Link>
         <br />
         <br />
         <Link

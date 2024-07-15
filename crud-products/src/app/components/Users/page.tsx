@@ -4,12 +4,12 @@ import React from "react";
 
 type Props = {};
 
-export default function AllProducts({}: Props) {
+export default function User({}: Props) {
   return (
     <div className="containe">
       <Sidebar />
       <div className="content">
-        <h1 className="text-3xl">Products</h1>
+        <h1 className="text-3xl">Users</h1>
         <div className="relative overflow-x-auto">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -59,7 +59,8 @@ export default function AllProducts({}: Props) {
                 <td className="px-6 py-4">10</td>
                 <td className="px-6 py-4">ยา</td>
                 <td className="px-6 py-4 text-center">
-                  <Link href={''}
+                  <Link
+                  href={'/components/Users/1'}
                     type="button"
                     className="focus:outline-none text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
                   >
