@@ -1,13 +1,81 @@
-import Sidebar from '@/Sidebar/Sidebar'
-import React from 'react'
+import Sidebar from "@/Sidebar/Sidebar";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 export default function AllProducts({}: Props) {
   return (
-    <div>
-        <Sidebar/>
-        <h1>AllProducts</h1>
+    <div className="containe">
+      <Sidebar />
+      <div className="content">
+        <h1 className="text-3xl">Products</h1>
+        <div className="relative overflow-x-auto">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Barcode
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Weight (Kg)
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  MFG
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  EXP
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Cost Price (฿)
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Selling Price (฿)
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Type
+                </th>
+                <th scope="col" className="px-6 py-3 text-center">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  8853124695125
+                </th>
+                <td className="px-6 py-4">WY</td>
+                <td className="px-6 py-4">0.25</td>
+                <td className="px-6 py-4">12/06/2564</td>
+                <td className="px-6 py-4">12/06/2565</td>
+                <td className="px-6 py-4">5</td>
+                <td className="px-6 py-4">10</td>
+                <td className="px-6 py-4">ยา</td>
+                <td className="px-6 py-4 text-center">
+                  <button
+                    type="button"
+                    className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+                  >
+                    Yellow
+                  </button>
+                  <button
+                    type="button"
+                    className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                  >
+                    Purple
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

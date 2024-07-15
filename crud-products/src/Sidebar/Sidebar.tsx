@@ -1,15 +1,34 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 export default function Sidebar({}: Props) {
   return (
-    <div className='sidebar'>
-      <h1>Sidebar</h1>
-      <div className="item-menu">ADD</div>
-      <div className="item-menu">SHOW ALL</div>
-      <div className="item-menu">SELL</div>
-      <div className="item-menu">MOVE</div>
+    <div className="sidebar">
+      <ul className="menu">
+        <li className="item-menu header text-white text-3xl">ADMIN</li>
+        <Link href={"/components/AllProducts"} className="item-menu text-white">
+          Products
+        </Link>
+        <Link href={"/components/Add"} className="item-menu text-white">
+          ADD
+        </Link>
+        <Link href={"/components/Move"} className="item-menu text-white">
+          Move
+        </Link>
+        <Link href={"/components/Users"} className="item-menu text-white">
+          Users
+        </Link>
+        <br />
+        <br />
+        <Link
+          href={"/components/AllProducts"}
+          className="item-menu logout text-white"
+        >
+          Log-out
+        </Link>
+      </ul>
     </div>
-  )
+  );
 }
