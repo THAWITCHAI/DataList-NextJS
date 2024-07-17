@@ -1,9 +1,12 @@
+'use client'
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { use } from "react";
 
 type Props = {};
 
 export default function Sidebar({}: Props) {
+  const router = useRouter()
   return (
     <div className="sidebar">
       <ul className="menu">
@@ -22,12 +25,15 @@ export default function Sidebar({}: Props) {
         </Link>
         <br />
         <br />
-        <Link
-          href={"/components/AllProducts"}
+        <button
+        onClick={(e)=>{
+          e.preventDefault()
+          return router.replace('/')
+        }}
           className="item-menu logout text-white"
         >
           Log-out
-        </Link>
+        </button>
       </ul>
     </div>
   );

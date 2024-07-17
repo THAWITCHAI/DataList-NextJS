@@ -60,7 +60,7 @@ export default function User({}: Props) {
                 <td className="px-6 py-4">ยา</td>
                 <td className="px-6 py-4 text-center">
                   <Link
-                  href={'/components/Users/8853124695125'}
+                    href={"/components/Users/8853124695125"}
                     type="button"
                     className="focus:outline-none text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
                   >
