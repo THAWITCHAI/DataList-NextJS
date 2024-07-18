@@ -12,16 +12,16 @@ export default function Sidebar({}: Props) {
       <ul className="menu">
         <li className="item-menu header text-white text-3xl">ADMIN</li>
         <Link href={"/components/AllProducts"} className="item-menu text-white">
-          Products
+          ข้อมูลสินค้าทั้งหมด
         </Link>
         <Link href={"/components/add-product"} className="item-menu text-white">
-          ADD
+          เพิ่มสินค้า
         </Link>
         <Link href={"/components/Users"} className="item-menu text-white">
-          Users
+          ข้อมูลพนังงานทั้งหมด
         </Link>
         <Link href={"/components/Users/add"} className="item-menu text-white">
-          Regiter
+          เพิ่มข้อมูลพนังงาน
         </Link>
         <br />
         <br />
@@ -32,7 +32,7 @@ export default function Sidebar({}: Props) {
         }}
           className="item-menu logout text-white"
         >
-          Log-out
+          ออกจากระบบ
         </button>
       </ul>
     </div>
