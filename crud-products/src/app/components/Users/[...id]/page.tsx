@@ -13,7 +13,7 @@ export default function EditUser({ params }: Props) {
   useEffect(() => {
     fetch("http://localhost:3000/api/employees")
       .then((res) => res.json())
-      .then((res) => setData(res));
+      .then((res:any) => setData(res));
   }, []);
 
   const { data: session } = useSession();

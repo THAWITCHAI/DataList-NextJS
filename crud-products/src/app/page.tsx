@@ -14,7 +14,7 @@ function HomePage({}: Props) {
       </>
     );
   }else{
-    return redirect('/components/Users')
+    return redirect('/welcome')
   }
 }
 
