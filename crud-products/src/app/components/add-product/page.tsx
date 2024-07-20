@@ -1,10 +1,15 @@
+'use client'
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = any;
 
 export default function AddProduct({ params }: Props) {
-  return (
+  const { data: session } = useSession();
+  if(session){
+    return (
     <div className="container mx-auto">
       <h1 className="text-3xl text-center mt-10">ADD PRODUCT</h1>
       <br />
@@ -124,4 +129,8 @@ export default function AddProduct({ params }: Props) {
       </Link>
     </div>
   );
+  }else{
+    return redirect('/')
+  }
+  
 }

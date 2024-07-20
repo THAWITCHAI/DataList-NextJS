@@ -1,16 +1,24 @@
-'use client'
+"use client";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { use } from "react";
 
 type Props = {};
 
 export default function Sidebar({}: Props) {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="sidebar">
       <ul className="menu">
-        <li className="item-menu header text-white text-3xl">ADMIN</li>
+        <li
+          onClick={(e) => {
+            e.preventDefault();
+            return router.push("/welcome");
+          }}
+          className="item-menu header text-white text-3xl"
+        >
+          ADMIN
+        </li>
         <Link href={"/components/AllProducts"} className="item-menu text-white">
           ข้อมูลสินค้าทั้งหมด
         </Link>
@@ -26,10 +34,10 @@ export default function Sidebar({}: Props) {
         <br />
         <br />
         <button
-        onClick={(e)=>{
-          e.preventDefault()
-          return router.replace('/')
-        }}
+          onClick={(e) => {
+            e.preventDefault();
+            return signOut();
+          }}
           className="item-menu logout text-white"
         >
           ออกจากระบบ

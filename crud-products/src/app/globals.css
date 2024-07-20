@@ -16,6 +16,7 @@
     display: grid;
     grid-template-columns: 100%;
     padding: 2rem;
+    cursor: pointer;
 }
 .item-menu{
     border: 1px solid white;
