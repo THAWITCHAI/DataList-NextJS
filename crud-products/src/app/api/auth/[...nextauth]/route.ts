@@ -5,7 +5,7 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text"},
+        username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
@@ -14,8 +14,8 @@ const handler = NextAuth({
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
         });
+        console.log("Req is ", req);
         const response = await res.json();
-        console.log(response.user)
 
         if (res.ok && response) {
           return response.user;
@@ -24,9 +24,9 @@ const handler = NextAuth({
       },
     }),
   ],
-  pages:{
-    signIn:'/auth/Login',
-  }
+  pages: {
+    signIn: "/auth/Login",
+  },
 });
 
 export { handler as GET, handler as POST };

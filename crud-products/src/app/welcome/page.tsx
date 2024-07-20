@@ -6,8 +6,8 @@ import React from "react";
 
 type Props = {};
 
-export default async function AllProducts({}: Props) {
-  const { data: session } = await useSession();
+export default function AllProducts({}: Props) {
+  const { data: session } = useSession();
   if (!session) {
     return redirect("/");
   } else {

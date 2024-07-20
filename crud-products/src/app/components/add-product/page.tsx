@@ -56,7 +56,7 @@ export default function AddProduct({ params }: Props) {
               MFG.
             </label>
             <input
-              type="text"
+              type="date"
               id="phone"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder=" Manufacturing Date"
@@ -68,7 +68,7 @@ export default function AddProduct({ params }: Props) {
               EXP.
             </label>
             <input
-              type="text"
+              type="date"
               id="website"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Expiry Date"
