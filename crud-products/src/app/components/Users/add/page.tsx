@@ -1,20 +1,61 @@
-'use client'
+"use client";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = any;
 
 export default function AddUser({ params }: Props) {
-  const { id } = params;
   const { data: session } = useSession();
   if (session) {
+    const [getData, setGetdata] = useState([]);
+    const [data, setData] = useState({
+      name: String,
+      email: String,
+      password: String,
+      born: String,
+      phoneNumber: String,
+      position: String,
+    });
+
+    useEffect(() => {
+      fetch("http://localhost:3000/api/employees")
+        .then((res) => res.json())
+        .then((res) => setGetdata(res));
+    }, []);
+
+    const handleChang = (e: any) => {
+      setData({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+      console.log(data);
+    };
+
+    const handleSubmit = async (e: any) => {
+      e.preventDefault();
+      const res = await getData.find((item) => item["email"] === data["email"]);
+      console.log(res);
+      if (!res) {
+        fetch("http://localhost:3000/api/register-user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        const form = e.target;
+        form.reset();
+        return;
+      }
+      if (res) {
+        return alert("อีเมลล์ซ้ำ");
+      }
+    };
     return (
       <div className="container mx-auto">
         <h1 className="text-3xl text-center mt-10">ADD USER</h1>
         <br />
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -23,6 +64,8 @@ export default function AddUser({ params }: Props) {
               <input
                 type="text"
                 id="last_name"
+                onChange={handleChang}
+                name="name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Thawitchai Boonsong"
                 required
@@ -34,6 +77,8 @@ export default function AddUser({ params }: Props) {
               </label>
               <input
                 type="email"
+                name="email"
+                onChange={handleChang}
                 id="company"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="thawitchai@gmail.com"
@@ -46,7 +91,9 @@ export default function AddUser({ params }: Props) {
               </label>
               <input
                 type="password"
-                id="phone"
+                name="password"
+                onChange={handleChang}
+                id="password"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="*********"
                 required
@@ -57,11 +104,12 @@ export default function AddUser({ params }: Props) {
                 Phone
               </label>
               <input
+                name="phoneNumber"
                 type="tel"
+                onChange={handleChang}
                 id="phone"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="085-154-7461"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 required
               />
             </div>
@@ -72,6 +120,8 @@ export default function AddUser({ params }: Props) {
               <input
                 type="date"
                 id="website"
+                onChange={handleChang}
+                name="born"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="12/06/2545"
                 required
@@ -83,6 +133,8 @@ export default function AddUser({ params }: Props) {
               </label>
               <input
                 type="text"
+                name="position"
+                onChange={handleChang}
                 id="visitors"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="พนังงานขาย"

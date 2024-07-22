@@ -8,9 +8,3 @@ export async function GET(requst: any) {
 
   return NextResponse.json(rows);
 }
-export async function POST(requst: any) {
-  const promisePool = mysqlPool.promise();
-  const [rows, fields] = await promisePool.query("SELECT * FROM employees");
-
-  return NextResponse.json(rows);
-}

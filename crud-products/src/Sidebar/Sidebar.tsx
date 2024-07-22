@@ -1,11 +1,12 @@
 "use client";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 type Props = {};
 
 export default function Sidebar({}: Props) {
+  const {data:session} = useSession()
   const router = useRouter();
   return (
     <div className="sidebar">
@@ -15,9 +16,9 @@ export default function Sidebar({}: Props) {
             e.preventDefault();
             return router.push("/welcome");
           }}
-          className="item-menu header text-white text-3xl"
+          className="item-menu header text-white text-xl uppercase"
         >
-          ADMIN
+          {session?.user?.name}
         </li>
         <Link href={"/components/AllProducts"} className="item-menu text-white">
           ข้อมูลสินค้าทั้งหมด

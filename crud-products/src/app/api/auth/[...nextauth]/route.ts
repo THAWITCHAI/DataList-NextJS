@@ -8,17 +8,16 @@ const handler = NextAuth({
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
-        const res = await fetch("https://www.melivecode.com/api/login", {
+      async authorize(credentials) {
+        const res = await fetch("http://localhost:3000/api/login-user", {
           method: "POST",
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
         });
-        console.log("Req is ", req);
         const response = await res.json();
 
         if (res.ok && response) {
-          return response.user;
+          return response;
         }
         return null;
       },
@@ -26,6 +25,8 @@ const handler = NextAuth({
   ],
   pages: {
     signIn: "/auth/Login",
+    signOut: "/",
+    error:'/components/Error'
   },
 });
 

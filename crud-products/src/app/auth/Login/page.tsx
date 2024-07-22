@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 
@@ -8,8 +7,6 @@ type Props = {};
 function Login({}: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const router = useRouter();
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -31,7 +28,7 @@ function Login({}: Props) {
               htmlFor="email"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              อีเมลล์
+              ชื่อ
             </label>
             <div className="mt-2">
               <input
@@ -40,7 +37,7 @@ function Login({}: Props) {
                 }}
                 id="email"
                 name="email"
-                type="email"
+                type="text"
                 required
                 autoComplete="email"
                 className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -77,8 +74,8 @@ function Login({}: Props) {
                 signIn("credentials", {
                   username: email,
                   password: password,
-                  redirect:true,
-                  callbackUrl:'/welcome'
+                  redirect: true,
+                  callbackUrl: "/welcome",
                 });
               }}
               type="submit"
