@@ -44,10 +44,10 @@ export default function AddProduct({ params }: Props) {
                       "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                      id: item["id"],
+                      id: item["exp"],
                       barcode: barcode == "" ? item["barcode"] : barcode,
                       name: name == "" ? item["name"] : name,
-                      weight: weight == "" ? item["weight"] : weight,
+                      weight: weight == "" ? item["weigth"] : weight,
                       mfg: mfg == "" ? item["mfg"] : mfg,
                       exp:
                         exp == "" ? item["exp"] : exp,

@@ -8,8 +8,8 @@ type Props = any;
 
 export default function AddProduct({ params }: Props) {
   const { data: session } = useSession();
+  const [data, setData] = useState({});
   if (session) {
-    const [data, setData] = useState({});
 
     const handleSubmit = () => {
       fetch("http://localhost:3000/api/POSTproduct", {

@@ -10,12 +10,12 @@ type Props = {};
 export default function User({}: Props) {
   const [data, setData] = useState([]);
   const { data: session } = useSession();
+  useEffect(() => {
+    fetch("http://localhost:3000/api/employees")
+      .then((res) => res.json())
+      .then((res) => setData(res));
+  }, []);
   if (session) {
-    useEffect(() => {
-      fetch("http://localhost:3000/api/employees")
-        .then((res) => res.json())
-        .then((res) => setData(res));
-    }, []);
 
     return (
       <div className="containe">

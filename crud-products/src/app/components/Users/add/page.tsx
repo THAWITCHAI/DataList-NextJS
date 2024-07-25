@@ -8,22 +8,22 @@ type Props = any;
 
 export default function AddUser({ params }: Props) {
   const { data: session } = useSession();
+  const [getData, setGetdata] = useState([]);
+  const [data, setData] = useState({
+    name: String,
+    email: String,
+    password: String,
+    born: String,
+    phoneNumber: String,
+    position: String,
+  });
+  useEffect(() => {
+    fetch("http://localhost:3000/api/employees")
+      .then((res) => res.json())
+      .then((res) => setGetdata(res));
+  }, []);
   if (session) {
-    const [getData, setGetdata] = useState([]);
-    const [data, setData] = useState({
-      name: String,
-      email: String,
-      password: String,
-      born: String,
-      phoneNumber: String,
-      position: String,
-    });
 
-    useEffect(() => {
-      fetch("http://localhost:3000/api/employees")
-        .then((res) => res.json())
-        .then((res) => setGetdata(res));
-    }, []);
 
     const handleChang = (e: any) => {
       setData({
